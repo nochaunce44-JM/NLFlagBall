@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="NL Flag Ball">
+<meta name="theme-color" content="#0a0a1a">
+<link rel="manifest" id="pwa-manifest">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAHJElEQVR4nO2dO5LdNhBFMS5H0g60Ju/AkXItx7ki78Br0g4UywFULNb7gPg0uu9t3hMp0NQ8Ng5v84EY4OPTpy9FiFn+iP4AghsJJJaQQGIJCSSWkEBiCQkklpBAYgkJJJb4M/oDQPDz64+Jn/r8XXOw5eNuM9FzrvRzN6vyC7TbmDbpfUorUKw3z2Q1KZVAaNK8I5NMSQRiUedMDo24BbLy5uO/vyd+6tdf/5r8dmqTWAWaVmfOlX6mrSLViE+gCXV2S/OOCZnoNGISaEidKGneMSQTkUYcAvWrg+bNM/0mUWiELlAmdc6k0QhXoE51uLx5ptMkWI1ABeqxh12dMz0aYToEJ9Dd1DnDqBGWQJf2ZFXnzKVGUA6hCCR1HmDRCEKgtj13U+dMWyMEh+KXtMqeBu3LR3iFHJlAUqcf2CgKSyDZMwRsFMUkUOOCpU6bRhSF5FBAAsmeFRolCskhb4FkzzpQDrm2sHeXJ3XmeNfOPHuZXwLJHnPelc4zh5wEkj2bCHfIQyDZs5VYh7YLJHscCHRor0Cyx40ohzYKJHucCXFol0CyJwR/h7YIJHsCcXbIbx5I9rjhWWp7gV6aLnuceVnwHSFkLJDswcHHIUuBEBbIiUtsh2n7M5DiJxCH4psJpOaFye5GZiOQ7EFmq0Pxf5UhqDEQSPGDz74QWhVI9rCwySG1MLHEkkCKHy52hJBxAskecMwHaF4gzTunYWUoLRNI8UOB7TBNCqT4Scb0gJolkOKHCMPBmhFI8ZOSuWG1SSDFDx1WQzYskOInMRODa5BAih9STAZu7NTmrPEzd0ZTyjvn59cfQ5t7jG3v8iwQXRGtTol7R4KCDAmU/9z43ca0fx2dT6MMCMTVv5y9ecfxMYhMGupiAy2Mon+BeNOAomj9AvUmEHj84HtzQJFJ/SHUm0Cw8UOkzktgy9gpEPFDNLs6lXoVIBpNQClQDnXO8GrU1cJw+lc+dZ7BqW1PF2NaVH8HewrbZXK0MK6arkPU0a4TKPwL/N3sOQi/8J6hn2lhnndGeBFj8bz8uWHFbWEQ6vzz6/c/vn1EfQTwdgb6EA1hDxKwBUEUCLZYsWCW5UIg/xkgzDKB4L+Y6fI5GjGBBBFYAil+LkErEZBAaKWBBapQKAJBFQUfnHKhCCRIgRAI534iAqRoLYFwVnEIN0a/yccnEMidxAhC6eIFEtRIILGEBBJLBAuE0MWpCS+gEkgsIYHEErgrEj04Fhwu/s+49YrhKIHEEhJILHHvFnbZegAW1YOjBBJLBAukt7OLhBdQCSSWkEBiCQkklogXKLyL84JQupZAz/sLhb+6E7sZ3WYqPoEKxp1EB0jRIAQSvKAIBHI/sYBTLhSBClJRwIEqFJBABaw0mKCVCEsgQceFQP7f5NHuMCj8N2e63CoaMYHk0Eswy4IoUEEtViCwBcFdUFZLFjz3DbCODFadykwC4W9enAb8LbmvBRo6gnUHt3Uo/MJ7hh63hZ2BaGeOhKvTD+hD9EuIyroC12VSHnmZNYqgSpr5yMt8HY0rdc5QClTJoRGvOpX5FlaQLp5RI/DqGbewz9+/hJ881+AYDHyTcLxp0D9305tABT6EHkAziatQ/QINPAOBh9ADIJkE602Doalj4ofoTh6GUMtRbBloYYWti/UzZ1XWC9+YQFxdrJ8EKlgx+urT4FUG2uOq6MRk4IYFCn85L/YxMbg2L1MVQnRYDdmMQAqhlMwNq9lyDoUQEYaDNSmQQigZ0wNquaBMIUSB7TDNC6QQSsPKUBovaVUIgWM+QEsCvTRXDsGy/uLiGaZF9QKQVYEUQizsiJ9ikkByCJ9N9hS1MLGIjUAKIWT2xU8xTCA5hMlWe4pDC5NDgTgU31IgzU1TYDtMxgmkRobD7uZVsW9hcggBH3uK59d4OeSGZ6m3CPTOdDnkwLsib3pC3ZVAcigEZ3vK1hYmh5zxt6fsfgaSQ26E2FMcHqLlkANR9hSfb2FyaCuB9hS3r/FyaBOx9hTPeSA5ZE64PWV0e5d1Gpt7aIuMfhp3nfMbSe8FZY3LUxR1gmNPCVmRKIdWgLKn+Lewg/ZGVWpnz7Tvrqi1NGFrotsXrCh6ANOeEphAB4qiNrDqVOL/KkNR1ADcnoKQQJXLvTvvFkWXdw6CPQVHoIo0KjzqVLAEKh0Olbwa9fRrKHsKoECVu2nEqE4FVKDS51Dh16jzWwKmPQVZoEr/xvhcJvV/u4RVp4IuUCWTRmnUqXAIVBk6pgPNpKEJLQp1KkwCVSZOe4mSaWIWlEidCp9AlelDg3bLND11TqdOhVWgitXZU3NWWb1mIVWnwi3QAeMpZtTeHCQRqMKiUQ51KqkEOoMmUyZpzqQV6CDWpKzeHOQX6IHdPqU35oHbCfSSOavu5spLJJBYIn5Jq6BGAoklJJBYQgKJJSSQWEICiSUkkFhCAokl/gffPSMbWbvwKgAAAABJRU5ErkJggg==">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="NL Flag Ball">
+<title>NEXT LEVEL FLAG FOOTBALL</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{width:100%;height:100%;overflow:hidden;background:#0a0a1a;}
+body{display:flex;justify-content:center;align-items:center;touch-action:none;}
+#gc{position:relative;width:100vw;max-width:480px;height:100vh;max-height:900px;overflow:hidden;background:#1a1a2e;}
+canvas{display:block;width:100%;height:100%;}
+
+/* SCOREBOARD */
+#ui{position:absolute;top:0;left:0;right:0;pointer-events:none;z-index:10;}
+#logo-banner{text-align:center;padding:3px;background:linear-gradient(90deg,#001f5b,#FF6B00,#001f5b);font-family:'Press Start 2P',monospace;font-size:6px;color:#fff;letter-spacing:2px;}
+#scoreboard{display:flex;justify-content:space-between;align-items:center;padding:6px 10px;background:rgba(0,0,0,0.88);border-bottom:3px solid #FF6B00;}
+.tscore{text-align:center;}
+.tlabel{font-family:'Press Start 2P',monospace;font-size:6px;letter-spacing:1px;margin-bottom:2px;}
+.navy-lbl{color:#4A90D9;}.orange-lbl{color:#FF6B00;}
+.snum{font-family:'VT323',monospace;font-size:26px;line-height:1;}
+.navy-snum{color:#fff;}.orange-snum{color:#FF6B00;}
+#cinfo{text-align:center;}
+#gclock{font-family:'VT323',monospace;font-size:20px;color:#FFD700;display:block;}
+#qdisp{font-family:'Press Start 2P',monospace;font-size:6px;color:#aaa;margin-top:1px;}
+#downdist{font-family:'Press Start 2P',monospace;font-size:6px;color:#FFD700;margin-top:2px;}
+
+/* CONTROLS */
+#controls{position:absolute;bottom:0;left:0;right:0;height:160px;pointer-events:none;z-index:20;display:flex;justify-content:space-between;align-items:flex-end;padding:10px 16px 24px;}
+#jzone{width:130px;height:130px;position:relative;pointer-events:all;}
+#jbase{width:120px;height:120px;border-radius:50%;background:rgba(0,30,80,0.75);border:3px solid #4A90D9;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+#jknob{width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#6ab0ff,#1a4a99);border:3px solid #fff;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:0 0 14px rgba(74,144,217,0.9);}
+#abtns{display:flex;flex-direction:column;gap:10px;pointer-events:all;}
+#btnrow{display:flex;gap:10px;justify-content:flex-end;}
+.abtn{width:54px;height:54px;border-radius:50%;border:3px solid;display:flex;align-items:center;justify-content:center;font-size:5.5px;font-family:'Press Start 2P',monospace;cursor:pointer;user-select:none;-webkit-user-select:none;text-align:center;line-height:1.4;transition:transform .08s,opacity .08s;}
+.abtn.pressed{transform:scale(.87);opacity:.7;}
+#bsprint{background:rgba(255,107,0,.25);border-color:#FF6B00;color:#FF6B00;}
+#bstiff{background:rgba(255,215,0,.2);border-color:#FFD700;color:#FFD700;}
+#bspin{background:rgba(74,144,217,.25);border-color:#4A90D9;color:#4A90D9;width:58px;height:58px;}
+#bthrow{background:rgba(0,255,100,.2);border-color:#00ff88;color:#00ff88;width:58px;height:58px;display:none;}
+
+/* SCREENS */
+.gscreen{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:50;padding:20px;}
+#tscreen{background:#0a0a1a;}
+.ptitle{font-family:'Press Start 2P',monospace;font-size:13px;color:#FF6B00;text-align:center;text-shadow:4px 4px 0 #001f5b,-2px -2px 0 #001f5b;line-height:1.7;margin-bottom:6px;}
+.psubtitle{font-family:'Press Start 2P',monospace;font-size:7px;color:#4A90D9;margin-bottom:28px;text-align:center;letter-spacing:2px;}
+.pbtn{background:#001f5b;border:3px solid #FF6B00;color:#FF6B00;padding:13px 22px;font-family:'Press Start 2P',monospace;font-size:9px;cursor:pointer;margin:7px;letter-spacing:1px;width:230px;text-align:center;transition:background .1s,transform .1s;}
+.pbtn:active{background:#FF6B00;color:#fff;transform:scale(.97);}
+.pbtn.sec{border-color:#4A90D9;color:#4A90D9;}
+.pbtn.sec:active{background:#4A90D9;color:#fff;}
+
+/* PLAY CALL SCREEN */
+#pcscreen{background:rgba(0,5,20,0.97);z-index:60;}
+#pcscreen .ptitle{font-size:10px;margin-bottom:4px;}
+.pc-subtitle{font-family:'Press Start 2P',monospace;font-size:6px;color:#888;margin-bottom:20px;}
+.plays-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:320px;}
+.play-card{background:#001025;border:2px solid #333;padding:14px 10px;cursor:pointer;text-align:center;transition:border-color .15s,background .15s;position:relative;overflow:hidden;}
+.play-card:active,.play-card.sel{border-color:#FF6B00;background:#1a0800;}
+.play-card svg{display:block;margin:0 auto 6px;}
+.play-name{font-family:'Press Start 2P',monospace;font-size:6px;color:#fff;line-height:1.6;}
+.play-desc{font-family:'VT323',monospace;font-size:13px;color:#888;margin-top:3px;}
+#pc-hike{display:none;margin-top:18px;}
+
+/* PLAY CALL FLASH */
+#pcflash{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;pointer-events:none;z-index:30;}
+#pcftxt{font-family:'VT323',monospace;font-size:24px;color:#FFD700;text-shadow:3px 3px 0 #000;background:rgba(0,0,0,.75);padding:8px 22px;display:inline-block;}
+
+/* END SCREEN */
+#escorenum{font-size:32px;font-family:'VT323',monospace;color:#FFD700;margin:14px 0;text-align:center;}
+
+/* ENERGY BAR */
+#energybar-wrap{position:absolute;left:10px;bottom:170px;pointer-events:none;z-index:11;}
+
+/* CONFETTI canvas */
+#confettiCanvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:40;}
+
+/* ORANGE FLAG */
+#oflag{position:absolute;pointer-events:none;z-index:35;display:none;font-size:28px;transition:transform .1s;}
+
+/* DOWN INDICATOR pill */
+#possind{position:absolute;right:10px;bottom:170px;font-family:'Press Start 2P',monospace;font-size:5px;color:#FFD700;text-align:right;pointer-events:none;z-index:11;}
+
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+.blink{animation:blink 1s step-end infinite;}
+</style>
+</head>
+<body>
+<div id="gc">
+  <canvas id="gameCanvas"></canvas>
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- UI -->
+  <div id="ui">
+    <div id="logo-banner">★ NEXT LEVEL SPORTS ★</div>
+    <div id="scoreboard">
+      <div class="tscore"><div class="tlabel navy-lbl">NL NAVY</div><div class="snum navy-snum" id="snavy">0</div></div>
+      <div id="cinfo"><span id="gclock">2:00</span><div id="qdisp">Q1</div><div id="downdist">1st &amp; 10</div></div>
+      <div class="tscore"><div class="tlabel orange-lbl">NL ORANGE</div><div class="snum orange-snum" id="sorange">0</div></div>
+    </div>
+  </div>
+
+  <!-- Play flash -->
+  <div id="pcflash" style="display:none;"><div id="pcftxt">TOUCHDOWN!</div></div>
+
+  <!-- Orange flag -->
+  <div id="oflag">🚩</div>
+
+  <!-- Energy -->
+  <div id="energybar-wrap">
+    <canvas id="energyCanvas" width="90" height="22"></canvas>
+  </div>
+  <div id="possind"></div>
+
+  <!-- Controls -->
+  <div id="controls">
+    <div id="jzone"><div id="jbase"><div id="jknob"></div></div></div>
+    <div id="abtns">
+      <div id="btnrow">
+        <div class="abtn" id="bstiff">STIFF<br>ARM</div>
+        <div class="abtn" id="bsprint">SPRINT</div>
+      </div>
+      <div style="display:flex;justify-content:flex-end;gap:10px;">
+        <div class="abtn" id="bthrow">THROW</div>
+        <div class="abtn" id="bspin">SPIN<br>MOVE</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TITLE SCREEN -->
+  <div class="gscreen" id="tscreen">
+    <div class="ptitle">NEXT LEVEL<br>FLAG BALL</div>
+    <div class="psubtitle">★ RETRO ARCADE EDITION ★</div>
+    <div style="margin-bottom:26px;display:flex;gap:40px;align-items:center;">
+      <div style="text-align:center;">
+        <div style="width:48px;height:48px;background:#001f5b;border:3px solid #4A90D9;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;">
+          <svg width="28" height="28" viewBox="0 0 28 28"><ellipse cx="14" cy="14" rx="11" ry="6" fill="#4A90D9"/><line x1="9" y1="8" x2="9" y2="20" stroke="#fff" stroke-width="1.5" opacity=".5"/><line x1="19" y1="8" x2="19" y2="20" stroke="#fff" stroke-width="1.5" opacity=".5"/></svg>
+        </div>
+        <div style="font-family:'Press Start 2P',monospace;font-size:6px;color:#4A90D9;">NL NAVY</div>
+      </div>
+      <div style="font-family:'VT323',monospace;font-size:20px;color:#FFD700;">VS</div>
+      <div style="text-align:center;">
+        <div style="width:48px;height:48px;background:#3d1500;border:3px solid #FF6B00;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;">
+          <svg width="28" height="28" viewBox="0 0 28 28"><ellipse cx="14" cy="14" rx="11" ry="6" fill="#FF6B00"/><line x1="9" y1="8" x2="9" y2="20" stroke="#fff" stroke-width="1.5" opacity=".5"/><line x1="19" y1="8" x2="19" y2="20" stroke="#fff" stroke-width="1.5" opacity=".5"/></svg>
+        </div>
+        <div style="font-family:'Press Start 2P',monospace;font-size:6px;color:#FF6B00;">NL ORANGE</div>
+      </div>
+    </div>
+    <button class="pbtn" id="bstart">▶ KICK OFF</button>
+    <button class="pbtn sec" id="bhowto">? HOW TO PLAY</button>
+
+    <button class="pbtn" id="install-btn" onclick="window.installApp()" style="display:none;border-color:#00ff88;color:#00ff88;font-size:8px;margin-top:2px;">&#11015; ADD TO HOME SCREEN</button>
+    <div style="font-family:'Press Start 2P',monospace;font-size:5px;color:#333;margin-top:18px;">NEXT LEVEL SPORTS © 2025</div>
+  </div>
+
+  <!-- HOW TO PLAY -->
+  <div class="gscreen" id="howscreen" style="display:none;background:#0a0a1a;">
+    <div class="ptitle" style="font-size:9px;margin-bottom:14px;">HOW TO PLAY</div>
+    <div style="font-family:'Press Start 2P',monospace;font-size:6px;color:#ccc;line-height:2.5;text-align:left;max-width:300px;">
+      <div style="color:#4A90D9;margin-bottom:4px;">🕹 JOYSTICK</div><div style="padding-left:12px;margin-bottom:12px;color:#aaa;">Move your ball carrier</div>
+      <div style="color:#FF6B00;margin-bottom:4px;">⚡ SPRINT</div><div style="padding-left:12px;margin-bottom:12px;color:#aaa;">Burst speed, uses energy</div>
+      <div style="color:#FFD700;margin-bottom:4px;">🤚 STIFF ARM</div><div style="padding-left:12px;margin-bottom:12px;color:#aaa;">Push defenders away</div>
+      <div style="color:#4A90D9;margin-bottom:4px;">🌀 SPIN MOVE</div><div style="padding-left:12px;margin-bottom:12px;color:#aaa;">Evade with a spin</div>
+      <div style="color:#00ff88;margin-bottom:4px;">🏈 THROW</div><div style="padding-left:12px;margin-bottom:12px;color:#aaa;">Pass on passing plays</div>
+      <div style="color:#FFD700;">🚩 Orange flag = play over</div>
+    </div>
+    <button class="pbtn" id="bback">← BACK</button>
+  </div>
+
+  <!-- PLAY CALL SCREEN -->
+  <div class="gscreen" id="pcscreen" style="display:none;">
+    <div class="ptitle">CALL A PLAY</div>
+    <div class="pc-subtitle" id="poss-label">YOU HAVE THE BALL</div>
+    <div class="plays-grid" id="plays-grid"></div>
+    <button class="pbtn" id="pc-hike">▶ HIKE!</button>
+  </div>
+
+  <!-- COUNTDOWN OVERLAY -->
+  <div id="cdoverlay" style="display:none;position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.82);z-index:55;flex-direction:column;align-items:center;justify-content:center;">
+    <div style="font-family:'Press Start 2P',monospace;font-size:10px;color:#aaa;margin-bottom:18px;letter-spacing:2px;">GET READY!</div>
+    <div id="cdnum" style="font-family:'VT323',monospace;font-size:120px;color:#FFD700;line-height:1;text-shadow:0 0 30px rgba(255,215,0,0.6);">5</div>
+    <div id="cdplay" style="font-family:'Press Start 2P',monospace;font-size:8px;color:#FF6B00;margin-top:14px;letter-spacing:1px;"></div>
+  </div>
+
+  <!-- END SCREEN -->
+  <div class="gscreen" id="escreen" style="display:none;background:rgba(0,0,0,.93);">
+    <div class="ptitle" id="etitle" style="font-size:11px;margin-bottom:8px;">GAME OVER</div>
+    <div id="escorenum">0 - 0</div>
+    <div id="ewinner" style="font-family:'Press Start 2P',monospace;font-size:7px;color:#FFD700;margin-bottom:22px;text-align:center;"></div>
+    <button class="pbtn" id="bplayagain">↺ PLAY AGAIN</button>
+    <button class="pbtn sec" id="bmainmenu">⌂ MAIN MENU</button>
+  </div>
+</div>
+
+<script>
+// ===================== AUDIO ENGINE =====================
+const AC = window.AudioContext || window.webkitAudioContext;
+let ac;
+function getAC() { if (!ac) ac = new AC(); return ac; }
+
+function playTone(freq, type, dur, vol=0.3, delay=0) {
+  try {
+    let a = getAC();
+    let o = a.createOscillator(), g = a.createGain();
+    o.connect(g); g.connect(a.destination);
+    o.type = type; o.frequency.setValueAtTime(freq, a.currentTime + delay);
+    g.gain.setValueAtTime(vol, a.currentTime + delay);
+    g.gain.exponentialRampToValueAtTime(0.001, a.currentTime + delay + dur);
+    o.start(a.currentTime + delay); o.stop(a.currentTime + delay + dur + 0.01);
+  } catch(e){}
+}
+
+function sfxTouchdown() {
+  // Fanfare: C E G C ascending then held chord
+  [[261,0],[329,0.12],[392,0.24],[523,0.38],[523,0.5],[659,0.52],[784,0.54]].forEach(([f,d])=>playTone(f,'square',0.3,0.25,d));
+  setTimeout(()=>{
+    playTone(523,'sawtooth',0.5,0.2,0);
+    playTone(659,'sawtooth',0.5,0.2,0.02);
+    playTone(784,'sawtooth',0.5,0.2,0.04);
+  },600);
+}
+
+function sfxFlagGrab() {
+  // Descending "aww" sound
+  try {
+    let a = getAC(), o = a.createOscillator(), g = a.createGain();
+    o.connect(g); g.connect(a.destination);
+    o.type = 'sawtooth';
+    o.frequency.setValueAtTime(400, a.currentTime);
+    o.frequency.exponentialRampToValueAtTime(150, a.currentTime + 0.4);
+    g.gain.setValueAtTime(0.25, a.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, a.currentTime + 0.45);
+    o.start(); o.stop(a.currentTime + 0.5);
+  } catch(e){}
+}
+
+function sfxWhistle() {
+  try {
+    let a = getAC(), o = a.createOscillator(), g = a.createGain();
+    o.connect(g); g.connect(a.destination);
+    o.type = 'sine';
+    o.frequency.setValueAtTime(1200, a.currentTime);
+    o.frequency.setValueAtTime(1400, a.currentTime + 0.1);
+    o.frequency.setValueAtTime(1200, a.currentTime + 0.2);
+    g.gain.setValueAtTime(0.3, a.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, a.currentTime + 0.35);
+    o.start(); o.stop(a.currentTime + 0.4);
+  } catch(e){}
+}
+
+function sfxThrow() {
+  playTone(800,'sine',0.1,0.2,0);
+  playTone(600,'sine',0.15,0.15,0.05);
+}
+
+function sfxCatch() {
+  playTone(900,'square',0.08,0.2,0);
+  playTone(1100,'square',0.08,0.2,0.05);
+}
+
+function sfxFirstDown() {
+  [440,554,659].forEach((f,i)=>playTone(f,'square',0.2,0.25,i*0.1));
+}
+
+// ===================== CONFETTI =====================
+const confCanvas = document.getElementById('confettiCanvas');
+const confCtx = confCanvas.getContext('2d');
+let confParticles = [];
+
+function resizeConf() {
+  confCanvas.width = confCanvas.offsetWidth;
+  confCanvas.height = confCanvas.offsetHeight;
+}
+
+function launchConfetti() {
+  confParticles = [];
+  const colors = ['#FF6B00','#4A90D9','#FFD700','#fff','#00ff88','#ff4466'];
+  for (let i = 0; i < 160; i++) {
+    confParticles.push({
+      x: Math.random() * confCanvas.width,
+      y: -10 - Math.random() * 100,
+      vx: (Math.random() - 0.5) * 4,
+      vy: 2 + Math.random() * 5,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      w: 6 + Math.random() * 8,
+      h: 4 + Math.random() * 6,
+      rot: Math.random() * Math.PI * 2,
+      rotV: (Math.random() - 0.5) * 0.2,
+      life: 1
+    });
+  }
+}
+
+function updateConfetti() {
+  if (!confParticles.length) { confCtx.clearRect(0,0,confCanvas.width,confCanvas.height); return; }
+  confCtx.clearRect(0,0,confCanvas.width,confCanvas.height);
+  confParticles = confParticles.filter(p => p.y < confCanvas.height + 20);
+  confParticles.forEach(p => {
+    p.x += p.vx; p.y += p.vy; p.rot += p.rotV; p.vy += 0.08;
+    confCtx.save();
+    confCtx.translate(p.x, p.y);
+    confCtx.rotate(p.rot);
+    confCtx.fillStyle = p.color;
+    confCtx.globalAlpha = Math.min(1, p.life);
+    confCtx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+    confCtx.restore();
+  });
+  confCtx.globalAlpha = 1;
+}
+
+// ===================== ORANGE FLAG =====================
+let flagAnim = null;
+function showOrangeFlag(x, y) {
+  const el = document.getElementById('oflag');
+  const gc = document.getElementById('gc');
+  const rect = gc.getBoundingClientRect();
+  const scaleX = rect.width / canvas.width;
+  const scaleY = rect.height / canvas.height;
+  el.style.left = (x * scaleX - 14) + 'px';
+  el.style.top = (y * scaleY - 60) + 'px';
+  el.style.display = 'block';
+  el.style.transform = 'translateY(0) scale(1)';
+  el.style.fontSize = '30px';
+  // Animate upward
+  let startY = y * scaleY;
+  let t = 0;
+  if (flagAnim) cancelAnimationFrame(flagAnim);
+  function animFlag() {
+    t++;
+    let yOff = -t * 1.5;
+    el.style.top = (y * scaleY - 60 + yOff) + 'px';
+    el.style.opacity = t < 30 ? 1 : Math.max(0, 1 - (t-30)/20);
+    if (t < 50) flagAnim = requestAnimationFrame(animFlag);
+    else { el.style.display = 'none'; el.style.opacity = 1; }
+  }
+  flagAnim = requestAnimationFrame(animFlag);
+}
+
+// ===================== GAME ENGINE =====================
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+const container = document.getElementById('gc');
+let W, H;
+
+function resize() {
+  W = container.offsetWidth; H = container.offsetHeight;
+  canvas.width = W; canvas.height = H;
+  resizeConf();
+}
+
+// Game state
+let gs = 'title';
+let score = {navy:0, orange:0};
+let quarter = 1, clockSec = 120, clockRunning = false;
+let down = 1, yards = 10, possession = 'navy';
+let selectedPlay = null;
+
+// Play definitions
+const PLAYS = [
+  { id:'hb_dive',   name:'HB DIVE',     desc:'Inside run',     type:'run',  icon:'run',   speedBoost:0,  dirLock:true  },
+  { id:'sweep',     name:'SWEEP',       desc:'Outside run',    type:'run',  icon:'sweep', speedBoost:0.4,dirLock:false },
+  { id:'hitch',     name:'HITCH',       desc:'Short pass',     type:'pass', icon:'pass',  range:120      },
+  { id:'corner',    name:'CORNER',      desc:'Corner route',   type:'pass', icon:'corner',range:200      },
+  { id:'post',      name:'POST',        desc:'Deep pass',      type:'pass', icon:'post',  range:999      },
+  { id:'screen',    name:'SCREEN',      desc:'Screen pass',    type:'pass', icon:'screen',range:80       },
+];
+
+// Field
+let lineOfScrimmage = 0, firstDownLine = 0;
+let playActive = false, flagStolen = false;
+let energyCanvas = document.getElementById('energyCanvas');
+let energyCtx = energyCanvas.getContext('2d');
+
+// Player & defenders
+let player = {}, defenders = [], receivers = [], ball = {};
+let spinning = false, spinTimer = 0;
+let stiffArm = false, stiffTimer = 0;
+let sprinting = false, energy = 100;
+let tdFlash = 0;
+// Pass state
+let passMode = false, inAir = false, passTarget = null, passX = 0, passY = 0, passVX = 0, passVY = 0;
+let passCompleted = false;
+
+// Stars
+let stars = [];
+function initStars() {
+  stars = [];
+  for (let i=0;i<50;i++) stars.push({x:Math.random()*W,y:Math.random()*H*0.15,s:Math.random()*2+0.5,b:Math.random()});
+}
+
+// Joystick
+let jActive = false, jOrigin = {x:0,y:0}, jDelta = {x:0,y:0};
+const JR = 55;
+
+// ---- PPY ----
+function ppy() { return (W * 0.72) / 100; }
+function ezW() { return W * 0.13; }
+function fieldTop() { return H * 0.15 + 20 + 36; }
+function fieldBot() { return H - 168; }
+
+// ---- PLAY CALL SCREEN ----
+function showPlayCallScreen() {
+  gs = 'playcall';
+  selectedPlay = null;
+  clockRunning = false;
+  document.getElementById('pc-hike').style.display = 'none';
+  document.getElementById('pcscreen').style.display = 'flex';
+  document.getElementById('poss-label').textContent = possession === 'navy' ? '🏈 NAVY HAS THE BALL' : '🏈 ORANGE HAS THE BALL';
+
+  const grid = document.getElementById('plays-grid');
+  grid.innerHTML = '';
+  PLAYS.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'play-card';
+    card.innerHTML = `${playIcon(p.id)}<div class="play-name">${p.name}</div><div class="play-desc">${p.desc}</div>`;
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.play-card').forEach(c=>c.classList.remove('sel'));
+      card.classList.add('sel');
+      selectedPlay = p;
+      document.getElementById('pc-hike').style.display = 'block';
+    });
+    grid.appendChild(card);
+  });
+}
+
+function playIcon(id) {
+  const svgW = 60, svgH = 36;
+  const colors = {line:'#4A90D9', route:'#FFD700', player:'#FF6B00'};
+  let paths = '';
+  if (id === 'hb_dive') paths = `<line x1="10" y1="28" x2="50" y2="28" stroke="${colors.line}" stroke-width="2"/>
+    <circle cx="30" cy="22" r="5" fill="${colors.player}"/>
+    <line x1="30" y1="22" x2="30" y2="10" stroke="${colors.route}" stroke-width="2" stroke-dasharray="3,2"/>
+    <polygon points="28,10 32,10 30,5" fill="${colors.route}"/>`;
+  else if (id === 'sweep') paths = `<line x1="10" y1="28" x2="50" y2="28" stroke="${colors.line}" stroke-width="2"/>
+    <circle cx="20" cy="22" r="5" fill="${colors.player}"/>
+    <path d="M20,22 Q50,22 50,12" stroke="${colors.route}" stroke-width="2" fill="none" stroke-dasharray="3,2"/>
+    <polygon points="48,10 52,12 48,14" fill="${colors.route}"/>`;
+  else if (id === 'hitch') paths = `<line x1="10" y1="28" x2="50" y2="28" stroke="${colors.line}" stroke-width="2"/>
+    <circle cx="30" cy="24" r="5" fill="${colors.player}"/>
+    <line x1="30" y1="24" x2="30" y2="14" stroke="${colors.route}" stroke-width="2" stroke-dasharray="3,2"/>
+    <line x1="30" y1="14" x2="20" y2="14" stroke="${colors.route}" stroke-width="2" stroke-dasharray="3,2"/>
+    <polygon points="18,12 20,16 22,12" fill="${colors.route}"/>`;
+  else if (id === 'corner') paths = `<line x1="10" y1="28" x2="50" y2="28" stroke="${colors.line}" stroke-width="2"/>
+    <circle cx="45" cy="24" r="5" fill="${colors.player}"/>
+    <line x1="45" y1="24" x2="45" y2="16" stroke="${colors.route}" stroke-width="2" stroke-dasharray="3,2"/>
+    <line x1="45" y1="16" x2="55" y2="8" stroke="${colors.route}" stroke-width="2" stroke-dasharray="3,2"/>
+    <polygon points="53,6 57,8 55,12" fill="${colors.route}"/>`;
+  else if (id === 'post') paths = `<line x1="10" y1="28" x2="50" y2="28" stroke="${colors.line}" stroke-width="2"/>
+    <circle cx="30" cy="24" r="5" fill="${colors.player}"/>
+    <line x1="30" y1="24" x2="30" y2="14" stroke="${colors.route}" stroke-width="2" stroke-dasharray="3,2"/>
+    <line x1="30" y1="14" x2="50" y2="6" stroke="${colors.route}" stroke-width="2" stroke-dasharray="3,2"/>
+    <polygon points="48,4 52,6 50,10" fill="${colors.route}"/>`;
+  else paths = `<line x1="10" y1="28" x2="50" y2="28" stroke="${colors.line}" stroke-width="2"/>
+    <circle cx="30" cy="24" r="5" fill="${colors.player}"/>
+    <line x1="30" y1="24" x2="30" y2="18" stroke="${colors.route}" stroke-width="2" stroke-dasharray="3,2"/>
+    <line x1="30" y1="18" x2="15" y2="18" stroke="${colors.route}" stroke-width="2" stroke-dasharray="3,2"/>
+    <polygon points="13,16 15,20 17,16" fill="${colors.route}"/>`;
+  return `<svg width="${svgW}" height="${svgH}" viewBox="0 0 60 36">${paths}</svg>`;
+}
+
+// ---- INIT PLAY ----
+function initPlay() {
+  flagStolen = false; spinning = false; spinTimer = 0;
+  stiffArm = false; stiffTimer = 0; sprinting = false;
+  passMode = false; inAir = false; passTarget = null; passCompleted = false;
+  energy = Math.min(100, energy + 35);
+  playActive = true;
+
+  const facing = possession === 'navy' ? 1 : -1;
+
+  // Determine play type
+  const isPass = selectedPlay && selectedPlay.type === 'pass';
+  passMode = isPass;
+
+  player = {
+    x: lineOfScrimmage,
+    y: H * 0.5,
+    vx: 0, vy: 0,
+    w: 16, h: 32,
+    bodyColor:  possession === 'navy' ? '#4A90D9' : '#FF6B00',
+    helmetColor: possession === 'navy' ? '#001f5b' : '#7a2800',
+    pantsColor: possession === 'navy' ? '#001f5b' : '#5a2000',
+    flagColor: '#FF3333',
+    hasBall: !isPass,
+    facing,
+    isPass
+  };
+
+  // Spawn receivers for pass plays
+  receivers = [];
+  if (isPass) {
+    const rcvColors = possession === 'navy' ? {body:'#4A90D9',helmet:'#001f5b',pants:'#001f5b'} : {body:'#FF6B00',helmet:'#7a2800',pants:'#5a2000'};
+    for (let i = 0; i < 2; i++) {
+      let rx = lineOfScrimmage + facing * (30 + i * 20);
+      let ry = H * 0.35 + i * (H * 0.28);
+      receivers.push({
+        x: rx, y: ry,
+        vx: 0, vy: 0,
+        w: 14, h: 28,
+        bodyColor: rcvColors.body,
+        helmetColor: rcvColors.helmet,
+        pantsColor: rcvColors.pants,
+        flagColor: '#FF3333',
+        hasBall: false,
+        facing,
+        routeStage: 0,
+        open: false,
+        id: i
+      });
+    }
+  }
+
+  // Spawn defenders
+  defenders = [];
+  const numDefs = 3 + Math.min(quarter, 3);
+  const defBody = possession === 'navy' ? '#FF6B00' : '#4A90D9';
+  const defHelmet = possession === 'navy' ? '#7a2800' : '#001f5b';
+  const defPants = possession === 'navy' ? '#5a2000' : '#001a3d';
+  for (let i = 0; i < numDefs; i++) {
+    let spread = (H * 0.45) / numDefs;
+    defenders.push({
+      x: lineOfScrimmage + facing * (70 + Math.random() * 130),
+      y: fieldTop() + 30 + spread * i + Math.random() * spread * 0.4,
+      w: 14, h: 28,
+      bodyColor: defBody, helmetColor: defHelmet, pantsColor: defPants,
+      vx: 0, vy: 0,
+      speed: 1.4 + Math.random() * 0.7 + quarter * 0.12,
+      grabbed: false, grabTimer: 0,
+      facing: -facing
+    });
+  }
+
+  firstDownLine = lineOfScrimmage + facing * yards * ppy();
+
+  // Update throw button visibility
+  document.getElementById('bthrow').style.display = isPass ? 'flex' : 'none';
+  document.getElementById('bspin').style.display = isPass ? 'none' : 'flex';
+
+  updateDownDist();
+  document.getElementById('possind').textContent = possession === 'navy' ? '🏈 NAVY' : '🏈 ORANGE';
+}
+
+// ---- THROW PASS ----
+function throwPass() {
+  if (!passMode || inAir || !playActive || flagStolen) return;
+  if (receivers.length === 0) return;
+  sfxThrow();
+
+  // Find most open receiver
+  let best = receivers.reduce((a,b) => {
+    let da = defenders.reduce((mn,d)=>Math.min(mn,dist(a,d)),9999);
+    let db = defenders.reduce((mn,d)=>Math.min(mn,dist(b,d)),9999);
+    return da > db ? a : b;
+  });
+
+  passTarget = best;
+  let dx = best.x - player.x, dy = best.y - player.y;
+  let len = Math.sqrt(dx*dx+dy*dy);
+  let spd = 6 + len * 0.04;
+  passVX = (dx/len)*spd; passVY = (dy/len)*spd;
+  passX = player.x; passY = player.y;
+  inAir = true;
+  player.hasBall = false;
+}
+
+function dist(a, b) { let dx=a.x-b.x,dy=a.y-b.y; return Math.sqrt(dx*dx+dy*dy); }
+
+// ---- TOUCHDOWN ----
+function touchdown() {
+  if (!playActive) return;
+  playActive = false;
+  score[possession] += 7;
+  updateScoreboard();
+  sfxTouchdown();
+  launchConfetti();
+  showFlash('TOUCHDOWN! +7', 160);
+  tdFlash = 70;
+  setTimeout(() => {
+    possession = possession === 'navy' ? 'orange' : 'navy';
+    down = 1; yards = 10;
+    lineOfScrimmage = W * 0.5;
+    hideFlash();
+    setTimeout(() => showPlayCallScreen(), 400);
+  }, 2400);
+}
+
+// ---- FLAG GRABBED ----
+function flagGrabbed(grabX, grabY) {
+  if (flagStolen || !playActive) return;
+  flagStolen = true; playActive = false;
+  sfxWhistle();
+  setTimeout(sfxFlagGrab, 80);
+  showOrangeFlag(grabX || player.x, grabY || player.y);
+
+  const facing = possession === 'navy' ? 1 : -1;
+  let gain = Math.round((player.x - lineOfScrimmage) * facing / ppy());
+  gain = Math.max(-15, Math.min(30, gain));
+
+  let msg = gain > 0 ? `GAIN OF ${gain} YDS` : gain === 0 ? 'NO GAIN' : `LOSS OF ${Math.abs(gain)} YDS`;
+  showFlash(msg, 110);
+
+  yards -= gain;
+  lineOfScrimmage = player.x;
+
+  setTimeout(() => {
+    hideFlash();
+    if (yards <= 0) {
+      down = 1; yards = 10;
+      showFlash('1ST DOWN!', 90);
+      sfxFirstDown();
+      setTimeout(() => { hideFlash(); showPlayCallScreen(); }, 1400);
+    } else {
+      down++;
+      if (down > 4) {
+        down = 1; yards = 10;
+        possession = possession === 'navy' ? 'orange' : 'navy';
+        lineOfScrimmage = player.x;
+        showFlash('TURNOVER ON DOWNS', 110);
+        setTimeout(() => { hideFlash(); showPlayCallScreen(); }, 1600);
+      } else {
+        showPlayCallScreen();
+      }
+    }
+    updateDownDist();
+  }, 1800);
+}
+
+// ---- FLASH ----
+function showFlash(msg, dur) {
+  document.getElementById('pcftxt').textContent = msg;
+  document.getElementById('pcflash').style.display = 'block';
+}
+function hideFlash() { document.getElementById('pcflash').style.display = 'none'; }
+
+// ---- SCOREBOARD ----
+function updateScoreboard() {
+  document.getElementById('snavy').textContent = score.navy;
+  document.getElementById('sorange').textContent = score.orange;
+}
+function updateClock() {
+  let m = Math.floor(clockSec/60), s = Math.floor(clockSec%60);
+  document.getElementById('gclock').textContent = `${m}:${s.toString().padStart(2,'0')}`;
+  document.getElementById('qdisp').textContent = `Q${quarter}`;
+}
+function updateDownDist() {
+  let d = ['1st','2nd','3rd','4th'][down-1];
+  document.getElementById('downdist').textContent = `${d} & ${Math.max(0,yards)}`;
+}
+
+// ---- DRAW PLAYER (detailed pixel art style) ----
+function drawCharacter(p, isBallCarrier, isReceiver) {
+  ctx.save();
+  ctx.translate(Math.round(p.x), Math.round(p.y));
+
+  const { w, h, bodyColor, helmetColor, pantsColor, hasBall } = p;
+  const half = w / 2;
+
+  // Shadow
+  ctx.fillStyle = 'rgba(0,0,0,0.3)';
+  ctx.beginPath();
+  ctx.ellipse(0, h*0.42+2, w*0.65, 3.5, 0, 0, Math.PI*2);
+  ctx.fill();
+
+  // Legs
+  const legW = Math.round(w*0.28);
+  const torsoH = Math.round(h * 0.42);
+  const legTop = Math.round(h * 0.14);
+  const legBot = Math.round(h * 0.42);
+  const legMid = Math.round((legTop+legBot)/2);
+
+  // Left leg
+  ctx.fillStyle = pantsColor;
+  ctx.fillRect(-half + 1, legTop, legW, torsoH * 0.55);
+  // Left shin (slightly lighter)
+  ctx.fillStyle = '#f0e8d0';
+  ctx.fillRect(-half + 1, legMid, legW, legBot - legMid + 2);
+  // Left cleat
+  ctx.fillStyle = '#111';
+  ctx.fillRect(-half + 1, legBot - 1, legW + 1, 5);
+
+  // Right leg
+  ctx.fillStyle = pantsColor;
+  ctx.fillRect(half - 1 - legW, legTop, legW, torsoH * 0.55);
+  ctx.fillStyle = '#f0e8d0';
+  ctx.fillRect(half - 1 - legW, legMid, legW, legBot - legMid + 2);
+  ctx.fillStyle = '#111';
+  ctx.fillRect(half - 1 - legW - 1, legBot - 1, legW + 1, 5);
+
+  // Jersey body
+  const jerseyTop = Math.round(-h * 0.42);
+  const jerseyH = Math.round(h * 0.55);
+
+  // Spin squish
+  let scaleX = 1;
+  if (spinning && isBallCarrier) scaleX = Math.cos(spinTimer * 0.38);
+  ctx.scale(scaleX, 1);
+
+  ctx.fillStyle = bodyColor;
+  ctx.fillRect(-half, jerseyTop, w, jerseyH);
+
+  // Jersey number
+  ctx.fillStyle = 'rgba(255,255,255,0.85)';
+  ctx.font = `bold ${Math.round(w*0.55)}px Arial`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(isBallCarrier ? '1' : isReceiver ? '8' : '#', 0, jerseyTop + jerseyH * 0.45);
+
+  // Shoulder pads outline
+  ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(-half, jerseyTop + jerseyH*0.22);
+  ctx.lineTo(half, jerseyTop + jerseyH*0.22);
+  ctx.stroke();
+
+  // Arms
+  ctx.fillStyle = bodyColor;
+  // Left arm
+  ctx.fillRect(-half - 4, jerseyTop + 3, 5, Math.round(jerseyH * 0.55));
+  // Right arm
+  ctx.fillRect(half - 1, jerseyTop + 3, 5, Math.round(jerseyH * 0.55));
+
+  // Stiff arm
+  if (stiffArm && isBallCarrier) {
+    ctx.strokeStyle = bodyColor;
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    ctx.moveTo(half * p.facing, jerseyTop + jerseyH * 0.35);
+    ctx.lineTo(half * p.facing * 2.5, jerseyTop + jerseyH * 0.5);
+    ctx.stroke();
+    // Fist
+    ctx.fillStyle = '#f0e8d0';
+    ctx.beginPath();
+    ctx.arc(half * p.facing * 2.5, jerseyTop + jerseyH * 0.5, 4, 0, Math.PI*2);
+    ctx.fill();
+  }
+
+  // Flags (flag football!)
+  if ((isBallCarrier || isReceiver) && !flagStolen) {
+    ctx.fillStyle = '#FF2222';
+    // Left flag ribbon
+    ctx.fillRect(-half - 5, jerseyTop + jerseyH * 0.55, 5, 12);
+    // Right flag ribbon
+    ctx.fillRect(half, jerseyTop + jerseyH * 0.55, 5, 12);
+  }
+
+  // Football (if carrying)
+  if (hasBall || (passCompleted && isReceiver)) {
+    ctx.save();
+    ctx.translate(half * p.facing * 0.7, jerseyTop + jerseyH * 0.3);
+    ctx.rotate(Math.PI/5 * p.facing);
+    ctx.fillStyle = '#8B4513';
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 9, 5, 0, 0, Math.PI*2);
+    ctx.fill();
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 0.8;
+    ctx.beginPath();
+    ctx.moveTo(-5, 0); ctx.lineTo(5, 0);
+    ctx.moveTo(0, -3); ctx.lineTo(0, 3);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  // Helmet (drawn last, on top)
+  const helmetR = Math.round(w * 0.58);
+  const helmetY = jerseyTop - 2;
+  ctx.fillStyle = helmetColor;
+  ctx.beginPath();
+  ctx.arc(0, helmetY, helmetR, Math.PI, 0, false);
+  ctx.fill();
+  ctx.fillRect(-helmetR, helmetY, helmetR*2, helmetR*0.5);
+
+  // Face mask
+  ctx.strokeStyle = 'rgba(200,200,200,0.7)';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.arc(0, helmetY, helmetR*0.85, Math.PI*0.1, Math.PI*0.9, false);
+  ctx.stroke();
+  // Visor
+  ctx.fillStyle = bodyColor === '#4A90D9' ? '#FF6B00' : '#4A90D9';
+  ctx.fillRect(-helmetR + 2, helmetY - 3, helmetR*2 - 4, 4);
+
+  // Helmet shine
+  ctx.fillStyle = 'rgba(255,255,255,0.15)';
+  ctx.beginPath();
+  ctx.ellipse(-helmetR*0.2, helmetY - helmetR*0.4, helmetR*0.35, helmetR*0.2, -0.4, 0, Math.PI*2);
+  ctx.fill();
+
+  ctx.restore();
+}
+
+function drawDefenderChar(d) {
+  ctx.save();
+  ctx.translate(Math.round(d.x), Math.round(d.y));
+
+  const { w, h, bodyColor, helmetColor, pantsColor } = d;
+  const half = w / 2;
+
+  // Shadow
+  ctx.fillStyle = 'rgba(0,0,0,0.25)';
+  ctx.beginPath();
+  ctx.ellipse(0, h*0.42+2, w*0.6, 3, 0, 0, Math.PI*2);
+  ctx.fill();
+
+  const legW = Math.round(w*0.28);
+  const legTop = Math.round(h * 0.14);
+  const legBot = Math.round(h * 0.42);
+  const legMid = Math.round((legTop+legBot)/2);
+
+  ctx.fillStyle = pantsColor;
+  ctx.fillRect(-half + 1, legTop, legW, legBot - legTop);
+  ctx.fillStyle = '#ddd';
+  ctx.fillRect(-half + 1, legMid, legW, legBot - legMid + 2);
+  ctx.fillStyle = '#111';
+  ctx.fillRect(-half + 1, legBot - 1, legW + 1, 5);
+  ctx.fillStyle = pantsColor;
+  ctx.fillRect(half - 1 - legW, legTop, legW, legBot - legTop);
+  ctx.fillStyle = '#ddd';
+  ctx.fillRect(half - 1 - legW, legMid, legW, legBot - legMid + 2);
+  ctx.fillStyle = '#111';
+  ctx.fillRect(half - 1 - legW - 1, legBot - 1, legW + 1, 5);
+
+  const jerseyTop = Math.round(-h * 0.42);
+  const jerseyH = Math.round(h * 0.55);
+  ctx.fillStyle = bodyColor;
+  ctx.fillRect(-half, jerseyTop, w, jerseyH);
+
+  ctx.fillStyle = 'rgba(255,255,255,0.7)';
+  ctx.font = `bold ${Math.round(w*0.5)}px Arial`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('D', 0, jerseyTop + jerseyH * 0.45);
+
+  ctx.fillStyle = bodyColor;
+  ctx.fillRect(-half - 4, jerseyTop + 3, 5, Math.round(jerseyH * 0.5));
+  ctx.fillRect(half - 1, jerseyTop + 3, 5, Math.round(jerseyH * 0.5));
+
+  // Alert
+  if (d.grabTimer > 0) {
+    ctx.fillStyle = '#ff4444';
+    ctx.font = '11px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('!', 0, jerseyTop - 10);
+  }
+
+  const helmetR = Math.round(w * 0.58);
+  const helmetY = jerseyTop - 2;
+  ctx.fillStyle = helmetColor;
+  ctx.beginPath();
+  ctx.arc(0, helmetY, helmetR, Math.PI, 0, false);
+  ctx.fill();
+  ctx.fillRect(-helmetR, helmetY, helmetR*2, helmetR*0.5);
+  ctx.strokeStyle = 'rgba(200,200,200,0.6)';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.arc(0, helmetY, helmetR*0.85, Math.PI*0.1, Math.PI*0.9, false);
+  ctx.stroke();
+  ctx.fillStyle = bodyColor === '#FF6B00' ? '#4A90D9' : '#FF6B00';
+  ctx.fillRect(-helmetR + 2, helmetY - 3, helmetR*2 - 4, 4);
+
+  ctx.restore();
+}
+
+// ---- DRAW FIELD ----
+function drawField() {
+  const ft = fieldTop(), fb = fieldBot();
+  const fH = fb - ft;
+  const ez = ezW();
+
+  // Sky / stadium backdrop
+  ctx.fillStyle = '#090915';
+  ctx.fillRect(0, 0, W, ft);
+
+  // Stars
+  stars.forEach(s => {
+    ctx.globalAlpha = 0.5 + s.b * 0.5;
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(Math.round(s.x), Math.round(s.y), s.s < 1.5 ? 1 : 2, s.s < 1.5 ? 1 : 2);
+  });
+  ctx.globalAlpha = 1;
+
+  // Crowd silhouettes
+  ctx.fillStyle = '#0f0f25';
+  ctx.fillRect(0, ft - 22, W, 22);
+  for (let i = 0; i < W; i += 10) {
+    let headH = 5 + (Math.sin(i * 0.4 + 1) * 2);
+    ctx.fillStyle = i % 20 < 10 ? '#001a3d' : '#1a0a00';
+    ctx.fillRect(i, ft - 22, 9, headH + 6);
+    ctx.fillStyle = i % 30 < 10 ? '#4A90D9' : i % 30 < 20 ? '#FF6B00' : '#FFD700';
+    ctx.beginPath();
+    ctx.arc(i + 4, ft - 22 + 3, 4, Math.PI, 0);
+    ctx.fill();
+  }
+
+  // Field base — alternating stripes
+  const stripeW = W / 10;
+  for (let i = 0; i < 10; i++) {
+    ctx.fillStyle = i % 2 === 0 ? '#0b3d0b' : '#0d4a0d';
+    ctx.fillRect(Math.round(i * stripeW), ft, Math.round(stripeW) + 1, fH);
+  }
+
+  // End zones
+  ctx.fillStyle = '#001a4d';
+  ctx.fillRect(0, ft, ez, fH);
+  ctx.save();
+  ctx.translate(ez/2, ft + fH/2);
+  ctx.rotate(-Math.PI/2);
+  ctx.fillStyle = '#4A90D9';
+  ctx.font = 'bold 9px "Press Start 2P", monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('NL NAVY', 0, 4);
+  ctx.restore();
+
+  ctx.fillStyle = '#3d1200';
+  ctx.fillRect(W - ez, ft, ez, fH);
+  ctx.save();
+  ctx.translate(W - ez/2, ft + fH/2);
+  ctx.rotate(Math.PI/2);
+  ctx.fillStyle = '#FF6B00';
+  ctx.font = 'bold 8px "Press Start 2P", monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('NL ORANGE', 0, 4);
+  ctx.restore();
+
+  // Yard lines + numbers
+  const pp = ppy();
+  for (let y = 0; y <= 100; y += 5) {
+    let lx = Math.round(ez + y * pp);
+    if (lx < ez || lx > W - ez) continue;
+    const isTen = y % 10 === 0;
+    ctx.strokeStyle = isTen ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.12)';
+    ctx.lineWidth = isTen ? 1.5 : 0.8;
+    ctx.setLineDash(isTen ? [] : [3,4]);
+    ctx.beginPath();
+    ctx.moveTo(lx, ft); ctx.lineTo(lx, fb);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    if (isTen && y > 0 && y < 100) {
+      let n = y <= 50 ? y : 100 - y;
+      ctx.fillStyle = 'rgba(255,255,255,0.45)';
+      ctx.font = '7px "Press Start 2P", monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText(n, lx, fb - 4);
+    }
+  }
+
+  // Scrimmage line
+  ctx.strokeStyle = '#FFD700';
+  ctx.lineWidth = 2;
+  ctx.setLineDash([6,3]);
+  ctx.beginPath();
+  ctx.moveTo(Math.round(lineOfScrimmage), ft);
+  ctx.lineTo(Math.round(lineOfScrimmage), fb);
+  ctx.stroke();
+
+  // First down line
+  ctx.strokeStyle = '#00ff88';
+  ctx.lineWidth = 2;
+  ctx.setLineDash([4,4]);
+  ctx.beginPath();
+  ctx.moveTo(Math.round(firstDownLine), ft);
+  ctx.lineTo(Math.round(firstDownLine), fb);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Sidelines
+  ctx.strokeStyle = 'rgba(255,255,255,0.8)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(0, ft); ctx.lineTo(W, ft);
+  ctx.moveTo(0, fb); ctx.lineTo(W, fb);
+  ctx.stroke();
+}
+
+// ---- DRAW PASS BALL IN AIR ----
+function drawPassBall() {
+  if (!inAir) return;
+  ctx.save();
+  ctx.translate(Math.round(passX), Math.round(passY));
+  const angle = Math.atan2(passVY, passVX);
+  ctx.rotate(angle);
+  ctx.fillStyle = '#8B4513';
+  ctx.beginPath();
+  ctx.ellipse(0, 0, 10, 5.5, 0, 0, Math.PI*2);
+  ctx.fill();
+  ctx.strokeStyle = '#fff';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(-6,0); ctx.lineTo(6,0);
+  ctx.moveTo(0,-3); ctx.lineTo(0,3);
+  ctx.stroke();
+  ctx.restore();
+}
+
+// ---- ENERGY BAR ----
+function drawEnergyBar() {
+  energyCtx.clearRect(0,0,90,22);
+  energyCtx.fillStyle = 'rgba(0,0,0,0.6)';
+  energyCtx.fillRect(0, 10, 80, 8);
+  const ec = energy > 50 ? '#00ff88' : energy > 25 ? '#FFD700' : '#FF4444';
+  energyCtx.fillStyle = ec;
+  energyCtx.fillRect(0, 10, Math.round(80 * energy/100), 8);
+  energyCtx.strokeStyle = '#aaa';
+  energyCtx.lineWidth = 1;
+  energyCtx.strokeRect(0, 10, 80, 8);
+  energyCtx.fillStyle = '#fff';
+  energyCtx.font = '5px "Press Start 2P", monospace';
+  energyCtx.textAlign = 'left';
+  energyCtx.fillText('ENERGY', 0, 8);
+}
+
+// ---- TD FLASH ----
+function drawTDFlash() {
+  if (tdFlash > 0) {
+    ctx.fillStyle = `rgba(255,215,0,${(tdFlash/70)*0.35})`;
+    ctx.fillRect(0,0,W,H);
+    tdFlash--;
+  }
+}
+
+// ---- UPDATE PLAYER ----
+function updatePlayer(dt) {
+  if (!playActive || flagStolen) return;
+
+  const spd = sprinting && energy > 0 ? 3.8 : 2.5;
+  let jx = jDelta.x / JR, jy = jDelta.y / JR;
+  const len = Math.sqrt(jx*jx + jy*jy);
+  if (len > 1) { jx /= len; jy /= len; }
+
+  player.vx = jx * spd;
+  player.vy = jy * spd;
+  player.x += player.vx;
+  player.y += player.vy;
+
+  if (len > 0.1) player.facing = jx > 0 ? 1 : -1;
+
+  const ft = fieldTop(), fb = fieldBot();
+  player.y = Math.max(ft + player.h * 0.5, Math.min(fb - player.h * 0.5, player.y));
+  player.x = Math.max(player.w, Math.min(W - player.w, player.x));
+
+  if (sprinting && energy > 0 && len > 0.3) {
+    energy -= 0.55; if (energy <= 0) { energy = 0; sprinting = false; }
+  } else if (!sprinting) {
+    energy = Math.min(100, energy + 0.22);
+  }
+
+  if (spinning) { spinTimer++; if (spinTimer > 22) { spinning = false; spinTimer = 0; } }
+  if (stiffArm) { stiffTimer++; if (stiffTimer > 16) { stiffArm = false; stiffTimer = 0; } }
+
+  // Touchdown check (run plays)
+  if (!passMode) checkTouchdown(player);
+}
+
+function checkTouchdown(p) {
+  const ez = ezW();
+  if (possession === 'navy' && p.x > W - ez - 5) touchdown();
+  else if (possession === 'orange' && p.x < ez + 5) touchdown();
+}
+
+// ---- UPDATE RECEIVERS ----
+function updateReceivers() {
+  if (!playActive || !passMode) return;
+  const facing = possession === 'navy' ? 1 : -1;
+  const ft = fieldTop(), fb = fieldBot();
+
+  receivers.forEach((r, i) => {
+    if (passCompleted && r === passTarget) {
+      // Receiver has ball — player controls via joystick mapped to receiver
+      let jx = jDelta.x / JR, jy = jDelta.y / JR;
+      const len = Math.sqrt(jx*jx+jy*jy);
+      if (len > 1) { jx/=len; jy/=len; }
+      const spd = sprinting && energy > 0 ? 3.6 : 2.4;
+      r.vx = jx * spd; r.vy = jy * spd;
+      r.x += r.vx; r.y += r.vy;
+      if (len > 0.1) r.facing = jx > 0 ? 1 : -1;
+      r.y = Math.max(ft + r.h*0.5, Math.min(fb - r.h*0.5, r.y));
+      r.x = Math.max(r.w, Math.min(W - r.w, r.x));
+      checkTouchdown(r);
+      return;
+    }
+
+    // Route running
+    r.routeStage = (r.routeStage || 0);
+    const play = selectedPlay;
+    let tx, ty;
+
+    if (play.id === 'hitch') {
+      if (r.routeStage === 0) { tx = r.x + facing * 80; ty = r.y; }
+      else { tx = r.x - facing * 40; ty = r.y; }
+    } else if (play.id === 'corner') {
+      if (r.routeStage === 0) { tx = r.x + facing * 60; ty = r.y; }
+      else { tx = r.x + facing * 80; ty = r.y - 60 * (i === 0 ? 1 : -1); }
+    } else if (play.id === 'post') {
+      if (r.routeStage === 0) { tx = r.x + facing * 80; ty = r.y; }
+      else { tx = r.x + facing * 120; ty = H * 0.5; }
+    } else if (play.id === 'screen') {
+      tx = r.x - facing * 30; ty = r.y + (i === 0 ? -30 : 30);
+    } else {
+      tx = r.x + facing * 100; ty = r.y;
+    }
+
+    const dx = tx - r.x, dy = ty - r.y;
+    const d = Math.sqrt(dx*dx+dy*dy);
+    if (d < 8) { r.routeStage = 1; }
+    else {
+      const spd = 2.2;
+      r.x += (dx/d)*spd; r.y += (dy/d)*spd;
+    }
+    r.y = Math.max(ft + r.h*0.5, Math.min(fb - r.h*0.5, r.y));
+  });
+}
+
+// ---- UPDATE PASS ----
+function updatePass() {
+  if (!inAir) return;
+  passX += passVX; passY += passVY;
+
+  // Check catch
+  if (passTarget) {
+    const dx = passX - passTarget.x, dy = passY - passTarget.y;
+    if (Math.sqrt(dx*dx+dy*dy) < 28) {
+      inAir = false;
+      passTarget.hasBall = true;
+      passCompleted = true;
+      sfxCatch();
+      // Now control switches to receiver
+    }
+  }
+
+  // Incomplete / out of bounds
+  const ft = fieldTop(), fb = fieldBot();
+  if (passX < 0 || passX > W || passY < ft - 20 || passY > fb + 20) {
+    if (!passCompleted) {
+      inAir = false;
+      showFlash('INCOMPLETE', 80);
+      setTimeout(() => { hideFlash(); flagGrabbed(player.x, player.y); }, 1000);
+    }
+  }
+}
+
+// ---- UPDATE DEFENDERS ----
+function updateDefenders() {
+  if (!playActive || flagStolen) return;
+
+  // Primary target: ball carrier or receiver with ball
+  let target = player.hasBall ? player : (passCompleted && passTarget ? passTarget : player);
+
+  defenders.forEach(d => {
+    const dx = target.x - d.x, dy = target.y - d.y;
+    const dist2 = Math.sqrt(dx*dx+dy*dy);
+
+    if (stiffArm && dist2 < 65) {
+      d.x -= (dx/dist2)*5; d.y -= (dy/dist2)*5; return;
+    }
+
+    if (dist2 > 2) {
+      let spd = d.speed;
+      if (spinning && dist2 < 50) spd *= 0.25;
+      d.x += (dx/dist2)*spd;
+      d.y += (dy/dist2)*spd;
+    }
+
+    // Grab check
+    if (dist2 < 22 && !flagStolen) {
+      if (!spinning) {
+        d.grabTimer = 10;
+        flagGrabbed(target.x, target.y);
+      }
+    } else {
+      d.grabTimer = Math.max(0, d.grabTimer - 1);
+    }
+  });
+}
+
+// ---- GAME START ----
+function startGame() {
+  document.getElementById('tscreen').style.display = 'none';
+  document.getElementById('escreen').style.display = 'none';
+  score = {navy:0, orange:0};
+  quarter = 1; clockSec = 120; down = 1; yards = 10;
+  possession = 'navy';
+  updateScoreboard(); updateClock(); updateDownDist();
+  lineOfScrimmage = W * 0.3;
+  clockRunning = true;
+  gs = 'playing';
+  showPlayCallScreen();
+}
+
+// ---- CLOCK ----
+let lastTs = null;
+function tickClock(dt) {
+  if (!clockRunning || !playActive) return;
+  // Cap dt at 100ms so a tab-switch or first-frame spike never eats real seconds
+  const safeDt = Math.min(dt, 100);
+  clockSec -= safeDt / 1000;
+  if (clockSec <= 0) {
+    clockSec = 0; clockRunning = false;
+    if (quarter < 4) {
+      quarter++; clockSec = 120; clockRunning = false;
+      showFlash(`Q${quarter} START`, 100);
+      setTimeout(() => { hideFlash(); clockRunning = true; showPlayCallScreen(); }, 1800);
+    } else {
+      endGame();
+    }
+  }
+  updateClock();
+}
+
+function endGame() {
+  gs = 'end';
+  document.getElementById('escreen').style.display = 'flex';
+  document.getElementById('escorenum').textContent = `${score.navy} - ${score.orange}`;
+  let winner, winMsg;
+  if (score.navy > score.orange) { winner = 'NL NAVY WINS!'; winMsg = '★ NAVY DOMINATES ★'; }
+  else if (score.orange > score.navy) { winner = 'NL ORANGE WINS!'; winMsg = '★ ORANGE TAKES IT ★'; }
+  else { winner = "IT'S A TIE!"; winMsg = '★ NEXT LEVEL EFFORT ★'; }
+  document.getElementById('etitle').textContent = winner;
+  document.getElementById('ewinner').textContent = winMsg;
+}
+
+// ---- MAIN LOOP ----
+function loop(ts) {
+  const dt = lastTs === null ? 16 : ts - lastTs;
+  lastTs = ts;
+
+  if (gs === 'playing') {
+    ctx.clearRect(0,0,W,H);
+    drawField();
+    if (passMode) receivers.forEach((r,i) => drawCharacter(r, r===passTarget && passCompleted, true));
+    defenders.forEach(d => drawDefenderChar(d));
+    if (playActive || flagStolen) drawCharacter(player, !passMode || (!passCompleted), false);
+    drawPassBall();
+    drawTDFlash();
+    drawEnergyBar();
+
+    updatePlayer(dt);
+    updateReceivers();
+    updatePass();
+    updateDefenders();
+    tickClock(dt);
+    updateConfetti();
+  } else {
+    updateConfetti();
+  }
+
+  requestAnimationFrame(loop);
+}
+
+// ---- INPUT ----
+function setupJoystick() {
+  const zone = document.getElementById('jzone');
+  const knob = document.getElementById('jknob');
+
+  function start(e) {
+    e.preventDefault(); jActive = true;
+    const base = document.getElementById('jbase').getBoundingClientRect();
+    jOrigin.x = base.left + base.width/2;
+    jOrigin.y = base.top + base.height/2;
+    move(e);
+  }
+  function move(e) {
+    if (!jActive) return; e.preventDefault();
+    const t = e.touches ? e.touches[0] : e;
+    let dx = t.clientX - jOrigin.x, dy = t.clientY - jOrigin.y;
+    const d = Math.sqrt(dx*dx+dy*dy);
+    if (d > JR) { dx = (dx/d)*JR; dy = (dy/d)*JR; }
+    jDelta.x = dx; jDelta.y = dy;
+    knob.style.left = (50 + (dx/JR)*38) + '%';
+    knob.style.top  = (50 + (dy/JR)*38) + '%';
+    knob.style.transform = 'translate(-50%,-50%)';
+  }
+  function end(e) {
+    e.preventDefault(); jActive = false;
+    jDelta.x = 0; jDelta.y = 0;
+    knob.style.left = '50%'; knob.style.top = '50%';
+    knob.style.transform = 'translate(-50%,-50%)';
+  }
+  zone.addEventListener('touchstart', start, {passive:false});
+  zone.addEventListener('touchmove', move, {passive:false});
+  zone.addEventListener('touchend', end, {passive:false});
+  zone.addEventListener('mousedown', start);
+  window.addEventListener('mousemove', move);
+  window.addEventListener('mouseup', end);
+}
+
+function setupButtons() {
+  function btn(id, onDown, onUp) {
+    const el = document.getElementById(id);
+    el.addEventListener('touchstart', e => { e.preventDefault(); el.classList.add('pressed'); onDown && onDown(); }, {passive:false});
+    el.addEventListener('touchend',   e => { e.preventDefault(); el.classList.remove('pressed'); onUp && onUp(); }, {passive:false});
+    el.addEventListener('mousedown',  () => { el.classList.add('pressed'); onDown && onDown(); });
+    el.addEventListener('mouseup',    () => { el.classList.remove('pressed'); onUp && onUp(); });
+  }
+
+  btn('bsprint', () => { if (energy > 10) sprinting = true; }, () => { sprinting = false; });
+  btn('bspin',   () => { if (!spinning && energy > 15) { spinning = true; spinTimer = 0; energy -= 15; } });
+  btn('bstiff',  () => { if (!stiffArm && energy > 10) { stiffArm = true; stiffTimer = 0; energy -= 10; } });
+  btn('bthrow',  () => throwPass());
+}
+
+// Play call hike -> 5-second countdown
+document.getElementById('pc-hike').addEventListener('click', () => {
+  if (!selectedPlay) return;
+  document.getElementById('pcscreen').style.display = 'none';
+
+  // Show countdown overlay
+  const overlay = document.getElementById('cdoverlay');
+  const cdNum   = document.getElementById('cdnum');
+  const cdPlay  = document.getElementById('cdplay');
+  overlay.style.display = 'flex';
+  cdPlay.textContent = selectedPlay.name + (selectedPlay.type === 'pass' ? ' (PASS)' : ' (RUN)');
+
+  // Draw the field behind the overlay while counting
+  gs = 'playing';
+  initPlay();
+  playActive = false; // hold play until countdown done
+
+  let count = 5;
+  cdNum.textContent = count;
+
+  // Beep on each count
+  function beep(isLast) {
+    try {
+      const a = getAC();
+      const o = a.createOscillator(), g = a.createGain();
+      o.connect(g); g.connect(a.destination);
+      o.type = 'square';
+      o.frequency.setValueAtTime(isLast ? 880 : 440, a.currentTime);
+      g.gain.setValueAtTime(0.2, a.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001, a.currentTime + (isLast ? 0.5 : 0.18));
+      o.start(); o.stop(a.currentTime + (isLast ? 0.55 : 0.22));
+    } catch(e) {}
+  }
+
+  beep(false);
+
+  const tick = setInterval(() => {
+    count--;
+    if (count <= 0) {
+      clearInterval(tick);
+      cdNum.textContent = 'GO!';
+      beep(true);
+      setTimeout(() => {
+        overlay.style.display = 'none';
+        playActive = true;
+        clockRunning = true;
+        sfxWhistle();
+      }, 600);
+    } else {
+      cdNum.textContent = count;
+      beep(false);
+    }
+  }, 1000);
+});
+
+document.getElementById('bstart').addEventListener('click', startGame);
+document.getElementById('bplayagain').addEventListener('click', () => {
+  document.getElementById('escreen').style.display = 'none'; startGame();
+});
+document.getElementById('bmainmenu').addEventListener('click', () => {
+  document.getElementById('escreen').style.display = 'none';
+  document.getElementById('tscreen').style.display = 'flex';
+  gs = 'title';
+});
+document.getElementById('bhowto').addEventListener('click', () => {
+  document.getElementById('tscreen').style.display = 'none';
+  document.getElementById('howscreen').style.display = 'flex';
+});
+document.getElementById('bback').addEventListener('click', () => {
+  document.getElementById('howscreen').style.display = 'none';
+  document.getElementById('tscreen').style.display = 'flex';
+});
+
+// Init
+resize();
+window.addEventListener('resize', () => { resize(); initStars(); });
+initStars();
+setupJoystick();
+setupButtons();
+requestAnimationFrame(loop);
+</script>
+<script>
+(function(){
+  var manifest = {"name":"Next Level Flag Football","short_name":"NL Flag Ball","description":"Retro arcade flag football by Next Level Sports","start_url":"./","display":"fullscreen","orientation":"portrait","background_color":"#0a0a1a","theme_color":"#0a0a1a","icons":[{"src":"data:image/png;base64,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","sizes":"192x192","type":"image/png","purpose":"any maskable"},{"src":"data:image/png;base64,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","sizes":"512x512","type":"image/png","purpose":"any maskable"}]};
+  var blob = new Blob([JSON.stringify(manifest)],{type:"application/manifest+json"});
+  var url = URL.createObjectURL(blob);
+  document.getElementById("pwa-manifest").href = url;
+  if("serviceWorker" in navigator){
+    var swCode = "const CACHE='nl-v1';self.addEventListener('install',e=>self.skipWaiting());self.addEventListener('activate',e=>self.clients.claim());self.addEventListener('fetch',e=>e.respondWith(fetch(e.request).catch(()=>new Response(''))))";
+    var swBlob = new Blob([swCode],{type:"application/javascript"});
+    var swUrl = URL.createObjectURL(swBlob);
+    navigator.serviceWorker.register(swUrl).catch(function(){});
+  }
+  var deferredPrompt;
+  window.addEventListener("beforeinstallprompt",function(e){
+    e.preventDefault(); deferredPrompt=e;
+    var btn=document.getElementById("install-btn");
+    if(btn) btn.style.display="block";
+  });
+  window.installApp=function(){
+    if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.then(function(){deferredPrompt=null;});}
+  };
+})();
+</script>
+</body>
+</html>
