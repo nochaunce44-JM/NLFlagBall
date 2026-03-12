@@ -20,6 +20,7 @@
 html,body{width:100%;height:100%;overflow:hidden;background:#0a0a1a;}
 body{display:flex;justify-content:center;align-items:center;touch-action:none;}
 #gc{position:relative;width:100vw;max-width:480px;height:100vh;max-height:900px;overflow:hidden;background:#1a1a2e;}
+@media (orientation:landscape){#gc{max-width:100vw;max-height:100vh;width:100vw;height:100vh;}}
 canvas{display:block;width:100%;height:100%;}
 
 /* SCOREBOARD */
@@ -36,19 +37,31 @@ canvas{display:block;width:100%;height:100%;}
 #qdisp{font-family:'Press Start 2P',monospace;font-size:6px;color:#aaa;margin-top:1px;}
 #downdist{font-family:'Press Start 2P',monospace;font-size:6px;color:#FFD700;margin-top:2px;}
 
-/* CONTROLS */
-#controls{position:absolute;bottom:0;left:0;right:0;height:160px;pointer-events:none;z-index:20;display:flex;justify-content:space-between;align-items:flex-end;padding:10px 16px 24px;}
+/* CONTROLS - portrait: bottom strip. landscape: sides overlaying field */
+#controls{position:absolute;bottom:0;left:0;right:0;height:160px;pointer-events:none;z-index:20;display:flex;justify-content:space-between;align-items:flex-end;padding:10px 16px 24px;opacity:0.55;transition:opacity .2s;}
+#controls:active{opacity:0.9;}
 #jzone{width:130px;height:130px;position:relative;pointer-events:all;}
-#jbase{width:120px;height:120px;border-radius:50%;background:rgba(0,30,80,0.75);border:3px solid #4A90D9;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
-#jknob{width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#6ab0ff,#1a4a99);border:3px solid #fff;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:0 0 14px rgba(74,144,217,0.9);}
+#jbase{width:120px;height:120px;border-radius:50%;background:rgba(0,20,60,0.55);border:2px solid rgba(74,144,217,0.7);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+#jknob{width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(106,176,255,0.9),rgba(26,74,153,0.9));border:2px solid rgba(255,255,255,0.7);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:0 0 10px rgba(74,144,217,0.6);}
 #abtns{display:flex;flex-direction:column;gap:10px;pointer-events:all;}
 #btnrow{display:flex;gap:10px;justify-content:flex-end;}
-.abtn{width:54px;height:54px;border-radius:50%;border:3px solid;display:flex;align-items:center;justify-content:center;font-size:5.5px;font-family:'Press Start 2P',monospace;cursor:pointer;user-select:none;-webkit-user-select:none;text-align:center;line-height:1.4;transition:transform .08s,opacity .08s;}
-.abtn.pressed{transform:scale(.87);opacity:.7;}
-#bsprint{background:rgba(255,107,0,.25);border-color:#FF6B00;color:#FF6B00;}
-#bstiff{background:rgba(255,215,0,.2);border-color:#FFD700;color:#FFD700;}
-#bspin{background:rgba(74,144,217,.25);border-color:#4A90D9;color:#4A90D9;width:58px;height:58px;}
-#bthrow{background:rgba(0,255,100,.2);border-color:#00ff88;color:#00ff88;width:58px;height:58px;display:none;}
+.abtn{width:54px;height:54px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;font-size:5.5px;font-family:'Press Start 2P',monospace;cursor:pointer;user-select:none;-webkit-user-select:none;text-align:center;line-height:1.4;transition:transform .08s,opacity .08s;}
+.abtn.pressed{transform:scale(.87);opacity:0.9;}
+#bsprint{background:rgba(255,107,0,.15);border-color:rgba(255,107,0,0.7);color:#FF6B00;}
+#bstiff{background:rgba(255,215,0,.12);border-color:rgba(255,215,0,0.7);color:#FFD700;}
+#bspin{background:rgba(74,144,217,.15);border-color:rgba(74,144,217,0.7);color:#4A90D9;width:58px;height:58px;}
+#bthrow{background:rgba(0,255,100,.12);border-color:rgba(0,255,136,0.7);color:#00ff88;width:58px;height:58px;display:none;}
+
+@media (orientation:landscape){
+  #gc{max-width:100vw;max-height:100vh;}
+  #controls{height:100%;top:0;flex-direction:row;align-items:center;padding:0 12px;background:transparent;opacity:0.5;}
+  #controls:active{opacity:0.85;}
+  #jzone{width:120px;height:120px;}
+  #jbase{width:110px;height:110px;}
+  #abtns{gap:8px;}
+  .abtn{width:50px;height:50px;font-size:5px;}
+  #bspin,#bthrow{width:54px;height:54px;}
+}
 
 /* SCREENS */
 .gscreen{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:50;padding:20px;}
@@ -405,8 +418,9 @@ const JR = 55;
 // ---- PPY ----
 function ppy() { return (W * 0.72) / 100; }
 function ezW() { return W * 0.13; }
-function fieldTop() { return H * 0.15 + 20 + 36; }
-function fieldBot() { return H - 168; }
+function isLandscape() { return W > H; }
+function fieldTop() { return isLandscape() ? Math.round(H * 0.18) : Math.round(H * 0.15 + 56); }
+function fieldBot() { return isLandscape() ? H - 10 : H - 168; }
 
 // ---- PLAY CALL SCREEN ----
 function showPlayCallScreen() {
@@ -520,23 +534,41 @@ function initPlay() {
     }
   }
 
-  // Spawn defenders
+  // Spawn defenders — 2 waves: 2 front (immediate), 2 deep (20 yards back)
   defenders = [];
-  const numDefs = 3 + Math.min(quarter, 3);
   const defBody = possession === 'navy' ? '#FF6B00' : '#4A90D9';
   const defHelmet = possession === 'navy' ? '#7a2800' : '#001f5b';
   const defPants = possession === 'navy' ? '#5a2000' : '#001a3d';
-  for (let i = 0; i < numDefs; i++) {
-    let spread = (H * 0.45) / numDefs;
+  const fieldH = fieldBot() - fieldTop();
+
+  // Front wave — 2 defenders close to line of scrimmage
+  for (let i = 0; i < 2; i++) {
     defenders.push({
-      x: lineOfScrimmage + facing * (70 + Math.random() * 130),
-      y: fieldTop() + 30 + spread * i + Math.random() * spread * 0.4,
+      x: lineOfScrimmage + facing * (55 + Math.random() * 80),
+      y: fieldTop() + fieldH * (0.25 + i * 0.45) + Math.random() * 20 - 10,
       w: 14, h: 28,
       bodyColor: defBody, helmetColor: defHelmet, pantsColor: defPants,
       vx: 0, vy: 0,
-      speed: 1.4 + Math.random() * 0.7 + quarter * 0.12,
+      speed: 1.5 + Math.random() * 0.6 + quarter * 0.12,
       grabbed: false, grabTimer: 0,
-      facing: -facing
+      facing: -facing,
+      wave: 'front'
+    });
+  }
+
+  // Deep wave — 2 defenders sitting 20 yards downfield, faster reaction
+  const deepOffset = 20 * ppy();
+  for (let i = 0; i < 2; i++) {
+    defenders.push({
+      x: lineOfScrimmage + facing * (deepOffset + 40 + Math.random() * 60),
+      y: fieldTop() + fieldH * (0.15 + i * 0.60) + Math.random() * 20 - 10,
+      w: 14, h: 28,
+      bodyColor: defBody, helmetColor: defHelmet, pantsColor: defPants,
+      vx: 0, vy: 0,
+      speed: 1.2 + Math.random() * 0.5 + quarter * 0.10,
+      grabbed: false, grabTimer: 0,
+      facing: -facing,
+      wave: 'deep'
     });
   }
 
